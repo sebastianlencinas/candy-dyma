@@ -1,0 +1,338 @@
+/*RESET STYLE DEFECT BROWSER*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* * * * * * * * * * * * * * * * * * * * */
+.delius-regular {
+  font-family: "Delius", cursive;
+  font-weight: 200;
+  font-size: x-large;
+  font-style: normal;
+}
+
+.henny-penny-regular {
+  font-family: "Henny Penny", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+   --s: 1; /*escala base movil */
+}
+
+body {
+  background: #ffffff url("/assets/image/background.jpg") no-repeat center / cover;
+}
+
+.escena{
+    position: relative;
+    width: 100%;
+    max-width: 360px;  /* mobile first (max ancho celular) */
+    height: 100vh; 
+    margin: 0 auto;
+    overflow: hidden; /*Todo lo que sobrepase el limite, no se muestra barra scroll*/
+}
+/* ================= TOLDO ================= */
+.toldo{
+    position:absolute;
+    width: 100%;
+    padding-top: 15vh;
+    /* left: 50%;
+    transform: translateX(-50%); */
+    z-index: 4;
+}
+
+.toldo img{
+    width: 100%;
+    height: 120px;
+    
+}
+/* ================= COLUMNAS ================= */
+.columnas{
+    position: absolute;
+    top: 3px;          /* debajo del toldo */
+    left: 0;
+    right: 0;
+    height: 520px;
+    pointer-events: none;
+  
+}
+
+.columna{
+    position: absolute;
+    bottom: 0;
+    width: 18px;
+    height: 300px; /*Altura visible real*/
+    overflow: hidden; /*Recorte*/
+}
+
+.columna img{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+}
+
+.columna-atras:nth-child(1){
+    left: 29%;
+    transform: scale(0.95);
+    opacity: 0.85;
+    z-index: 1;
+}
+.columna-atras:nth-child(2){
+    right: 10%;
+    transform: scale(0.95);
+    opacity: 0.85;
+    z-index: 1;
+}
+
+
+.columna-delante:nth-child(3){
+    left:26%;
+    z-index: 3;
+}
+.columna-delante:nth-child(4){
+    right:7%;
+    z-index: 3;
+}
+
+/* ================= MESA ================= */
+.mesa{
+    position: absolute;
+    width: 100%;
+    bottom: 80px;
+    left:50%;
+    transform: translate(-50%);
+    z-index: 0;
+}
+
+.mesa img{
+    width: 88%;
+    display: block;
+    margin: 0 auto;  
+}
+
+/* ================= FRASCOS ================= */
+.frascos{
+    position: absolute;
+    bottom: 90%;
+    left: 60.5%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    z-index: 2;
+  }
+  
+  .frascos img {
+    width: 70px;
+    filter: drop-shadow(0 6px 6px rgba(0,0,0,0.25));
+    transform: translateY(-25%);
+    animation: movimientoX 3s ease-in-out infinite;
+}
+
+/* ================= DECORACIÓN ================= */
+
+.logo{
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5vh;
+    width: 100%;
+    height: 30vh;
+}
+.logo img{
+  height: 100px;
+}
+
+.slogan{
+    position: absolute;
+    bottom: 0.5rem;
+    left:25%
+  }
+
+
+
+/*Efectos al click*/
+.frascos a {
+  transition: transform 0.15s ease;
+}
+.frascos a:active {
+  transform: scale(0.92);
+}
+
+
+@keyframes movimientoX {
+  0%,100% { transform: translateX(0); }
+  50% { transform: translateX(-6px); }
+}
+
+/* * * * * * * * * ABOUT * * * * * * * */
+#about{
+    display: block;
+    text-align: center;
+    margin: 1.5em;
+    border: 1px solid #00000039;
+    border-radius: 30px;
+    padding: 1em;
+    background-color: #f6f6f61f;
+    
+}
+
+#about h1{
+ font-size: xx-large;
+ margin-bottom: 0.2em;
+}
+#about h2{
+    font-size:1.3rem;
+    margin-bottom: 1em;
+}
+
+.info {
+    text-align: center;
+    line-height: 13pt;
+    font-size:0.8rem;
+    color: #222;
+}
+
+/* * * * * * * * * PRODUCTOS * * * * * * * */
+
+.productos{
+    display: block;
+    text-align: center;
+    margin: 1.5em;
+    height: 100vh;
+}
+
+.sub{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 20vh;
+}
+
+.productos h2{
+    font-size:1.3rem;
+    margin-bottom: 1em;
+    text-decoration: underline;
+}
+
+.productos p{
+  line-height: 13pt;
+  font-size:0.8rem;
+  color: #222;
+}
+
+.carousel-inner img {
+  height: 70vh; /* Define la altura deseada en píxeles, vh, u otra unidad */
+  width: 100%;
+  object-fit: cover; /* Ajusta la imagen para cubrir el área sin distorsionarla */
+  object-position: center; /* Centra la imagen dentro de su contenedor */
+  border: 1px solid #00000039;
+  border-radius: 30px;
+}
+
+
+
+/* * * * * * * * * CONTACTOS * * * * * * * */
+
+.contactos{
+    display: block;
+    text-align: center;
+    height: 100vh;
+}
+
+.formulario{
+    border: 1px solid #00000039;
+    border-radius: 30px;
+    padding: 1.5em;
+    background-color: #f6f6f650;
+}
+
+.redes{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.redes img{
+  width: 25%;
+}
+
+/* MediaQ tablet*/
+@media (min-width: 600px) {
+  :root { --s: 1.2; }
+}
+
+/* MediaQ desktop*/
+@media (min-width: 1024px) {
+  :root { --s: 1.4; }
+
+  .escena {
+    max-width: 900px;
+  }
+
+  .toldo,
+  .columnas,
+  .mesa,
+  .decoracion {
+    position: absolute;
+  }
+
+  .columnas {
+    perspective: 900px;
+  }
+
+  .columna-atras {
+    transform: translateY(-20px) translateZ(-40px);
+  }
+
+  .columna-delante {
+    transform: translateY(10px) translateZ(0);
+  }
+}
