@@ -67,7 +67,7 @@ table {
 }
 
 body {
-  background: #ffffff url("/assets/image/background.jpg") no-repeat center / cover;
+  background: #ffffff url("./assets/image/background.jpg") no-repeat center / cover;
 }
 
 .escena{
@@ -260,7 +260,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 20vh;
+  
 }
 
 .productos h2{
@@ -298,9 +298,11 @@ body {
     font-size:1.3rem;
     margin-bottom: 1em;
     text-decoration: underline;
+
 }
 
 .formulario{
+    height: 85vh;
     border: 1px solid #00000039;
     border-radius: 30px;
     padding: 1.5em;
