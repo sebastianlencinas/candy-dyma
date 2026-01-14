@@ -77,15 +77,18 @@ body {
     height: 100vh; 
     margin: 0 auto;
     overflow: hidden; /*Todo lo que sobrepase el limite, no se muestra barra scroll*/
-}
+    margin: 0.3em
+  }
 /* ================= TOLDO ================= */
 .toldo{
     position:absolute;
     width: 100%;
-    padding-top: 15vh;
+    top: 15vh;
+    left: 0;
+    z-index: 4;
+    /* padding-top: 15vh; */
     /* left: 50%;
     transform: translateX(-50%); */
-    z-index: 4;
 }
 
 .toldo img{
@@ -96,27 +99,26 @@ body {
 /* ================= COLUMNAS ================= */
 .columnas{
     position: absolute;
-    top: 3px;          /* debajo del toldo */
+    top: calc(15vh + 110px);   /* debajo del toldo */
+    bottom: calc(26vh + 40px); /* arriba de la mesa */ 
     left: 0;
     right: 0;
-    height: 520px;
     pointer-events: none;
-  
 }
 
 .columna{
     position: absolute;
     bottom: 0;
     width: 18px;
-    height: 300px; /*Altura visible real*/
+    height: 100%; /*Altura visible real*/
     overflow: hidden; /*Recorte*/
 }
 
 .columna img{
-    width: 100%;
-    height: auto;
     position: absolute;
     bottom: 0;
+    width: 100%;
+    height: auto;
 }
 
 .columna-atras:nth-child(1){
@@ -146,7 +148,7 @@ body {
 .mesa{
     position: absolute;
     width: 100%;
-    bottom: 80px;
+    bottom: 10vh;
     left:50%;
     transform: translate(-50%);
     z-index: 0;
@@ -165,6 +167,7 @@ body {
     left: 60.5%;
     transform: translateX(-50%);
     display: flex;
+    align-items: flex-end;
     gap: 0.5rem;
     justify-content: center;
     z-index: 2;
@@ -175,6 +178,10 @@ body {
     filter: drop-shadow(0 6px 6px rgba(0,0,0,0.25));
     transform: translateY(-25%);
     animation: movimientoX 3s ease-in-out infinite;
+}
+
+.frascos .prod{
+  padding-top: 12vh;
 }
 
 /* ================= DECORACIÓN ================= */
@@ -287,11 +294,34 @@ body {
     height: 100vh;
 }
 
+.contactos h2{
+    font-size:1.3rem;
+    margin-bottom: 1em;
+    text-decoration: underline;
+}
+
 .formulario{
     border: 1px solid #00000039;
     border-radius: 30px;
     padding: 1.5em;
-    background-color: #f6f6f650;
+    margin: 1.5em;
+    background-image: url(./assets/image/contact/back-2.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center; /* Center the image */
+    background-size: cover; /* Scale to cover the entire container */
+    background-color: #4a4a4ae2;
+}
+.formulario label{
+  color: #ffff;
+    text-decoration:underline;
+    font-size: medium;
+    border: 1px solid #ffffff18;
+    border-radius: 20px;
+    margin: 1em;
+    padding: 0.5em 1em;
+    background-color: #e4e4e43e;
+
 }
 
 .redes{
