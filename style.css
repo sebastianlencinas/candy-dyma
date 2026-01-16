@@ -74,80 +74,81 @@ body {
     position: relative;
     width: 100%;
     max-width: 360px;  /* mobile first (max ancho celular) */
-    height: 100vh; 
     margin: 0 auto;
     overflow: hidden; /*Todo lo que sobrepase el limite, no se muestra barra scroll*/
-    margin: 0.3em
+    height: 100vh; /*Fallback se aplica si el navegador no soporta dvh*/
+    height: 100dvh; /*Medida dinamica que toma en cuenta barra del navegador*/
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
   }
 /* ================= TOLDO ================= */
 .toldo{
-    position:absolute;
     width: 100%;
-    top: 15vh;
-    left: 0;
+    height: auto;
+    top: 10%; /*Relativo a la escena, no al celular*/
     z-index: 4;
-    /* padding-top: 15vh; */
-    /* left: 50%;
-    transform: translateX(-50%); */
 }
 
 .toldo img{
     width: 100%;
-    height: 120px;
-    
+    height: auto;
+    display: block;
 }
 /* ================= ESTRUCTURA =============== */
 .estructura {
   position: absolute;
-  inset: 0;
+  inset: 0; /*top / right / bottom / left = 0*/
 }
 
 /* ================= COLUMNAS ================= */
 .columnas{
     position: absolute;
-    top: calc(15vh + 110px);   /* debajo del toldo */
-    height: 280px; /* altura real del soporte */ 
+    bottom: 35%; /* MISMO bottom que la mesa aprox*/
+    top:28%;
     left: 0;
     right: 0;
+    height: auto; /* altura real del soporte */ 
     pointer-events: none;
+    
 }
 
 .columna{
     position: absolute;
     bottom: 0;
-    width: 18px;
+    width: 20px;
     height: 100%; /*Altura visible real*/
+    object-fit: fill;
     overflow: hidden; /*Recorte*/
 }
 
 .columna img{
     width: 100%;
     height: 100%;
-    object-fit: contain;
 }
 
 .columna-atras:nth-child(1){
     left: 29%;
-    padding-bottom: 15px;
-    transform: scale(0.95);
+    bottom: 1%;;
+    transform: scale(0.9);
+    filter: brightness(0.9); /* Efecto de sombra para las de atrás */
     
 }
 .columna-atras:nth-child(2){
     right: 5%;
-    padding-bottom: 12px;
+    bottom: 1%;
     transform: scale(0.95);
-
+    filter: brightness(0.9); /* Efecto de sombra para las de atrás */
 }
 
 
 .columna-delante:nth-child(1){
   left:22%;
-  padding-bottom: 5px;
-  z-index: 3;
+
 }
 .columna-delante:nth-child(2){
   right:2%;
-  z-index: 3;
+
 }
 .columnas-atras { z-index: 1; }
 .columnas-delante { z-index: 3; }
@@ -156,7 +157,7 @@ body {
 .mesa{
     position: absolute;
     width: 100%;
-    bottom: 10vh;
+    bottom: 12%;
     left:50%;
     transform: translate(-50%);
     z-index: 2;
@@ -169,28 +170,31 @@ body {
     
 }
 
+/* Eliminamos los paddings en píxeles que rompen la proporción */
+.columna-atras, .columna-delante {
+    padding-bottom: 0 !important; 
+}
+
 /* ================= FRASCOS ================= */
 .frascos{
     position: absolute;
-    bottom: 90%;
+    bottom: 96%;
     left: 60.5%;
     transform: translateX(-50%);
     display: flex;
     align-items: flex-end;
     gap: 0.3rem;
-    justify-content: center;
-    
   }
   
   .frascos img {
     width: 85px;
     filter: drop-shadow(0 6px 6px rgba(0,0,0,0.25));
-    transform: translateY(-25%);
+    align-self: flex-end;
     animation: movimientoX 3s ease-in-out infinite;
 }
 
-.frascos .prod{
-  padding-top: 12vh;
+.frascos .prod img{
+  transform: translateY(12%);
 }
 
 /* ================= DECORACIÓN ================= */
@@ -198,7 +202,7 @@ body {
 .logo{
     display: flex;
     justify-content: center;
-    padding-top: 4.5vh;
+    padding-top: 4%;
     width: 100%;
     height: 20vh;
 }
@@ -239,11 +243,14 @@ body {
 #about{
     display: block;
     text-align: center;
-    margin: 1.5em;
+    margin: 0em 1.5em;
+
     border: 1px solid #00000039;
     border-radius: 30px;
     padding: 1em;
     background-color: #f6f6f61f;
+    height: 100vh; /*Fallback se aplica si el navegador no soporta dvh*/
+    height: 100dvh; /*Medida dinamica que toma en cuenta barra del navegador*/
     
 }
 
@@ -252,24 +259,25 @@ body {
  margin-bottom: 0.2em;
 }
 #about h2{
-    font-size:1.3rem;
+    font-size:1.5rem;
     margin-bottom: 1em;
 }
 
 .info {
     text-align: center;
-    line-height: 13pt;
-    font-size:0.8rem;
+    line-height: 14pt;
+    font-size:1.15rem;
     color: #222;
 }
 
 /* * * * * * * * * PRODUCTOS * * * * * * * */
 
-.productos{
+#productos{
     display: block;
     text-align: center;
     margin: 1.5em;
     height: 100vh;
+    padding-top: 2rem;
 }
 
 .sub{
@@ -279,15 +287,15 @@ body {
   
 }
 
-.productos h2{
-    font-size:1.3rem;
+#productos h2{
+    font-size:1.5rem;
     margin-bottom: 1em;
     text-decoration: underline;
 }
 
-.productos p{
-  line-height: 13pt;
-  font-size:0.8rem;
+#productos p{
+  line-height: 14pt;
+  font-size:1.15rem;
   color: #222;
 }
 
@@ -304,14 +312,16 @@ body {
 
 /* * * * * * * * * CONTACTOS * * * * * * * */
 
-.contactos{
+#contactos{
+    padding-top: 2rem;
     display: block;
     text-align: center;
-    height: 100vh;
+    height: 100vh; /*Fallback se aplica si el navegador no soporta dvh*/
+    height: 100dvh; /*Medida dinamica que toma en cuenta barra del navegador*/
 }
 
-.contactos h2{
-    font-size:1.3rem;
+#contactos h2{
+    font-size:1.5rem;
     margin-bottom: 1em;
     text-decoration: underline;
 
@@ -328,17 +338,17 @@ body {
     background-repeat: no-repeat;
     background-position: center; /* Center the image */
     background-size: cover; /* Scale to cover the entire container */
-    background-color: #4a4a4ae2;
+    background-color: #f6f6f61f;
 }
 .formulario label{
-  color: #ffff;
+    color: #ffff;
     text-decoration:underline;
-    font-size: medium;
+    font-size: 1.15rem;
     border: 1px solid #ffffff18;
     border-radius: 20px;
     margin: 1em;
     padding: 0.5em 1em;
-    background-color: #e4e4e43e;
+    background-color: #0d0d0d85;
 
 }
 
@@ -351,6 +361,28 @@ body {
 .redes img{
   width: 25%;
 }
+
+.instagram {
+      display: inline-flex;
+      background: #FD1A8D;
+background: radial-gradient(circle,rgba(253, 26, 141, 1) 50%, rgba(252, 249, 70, 1) 100%);
+      color: white;
+      padding: 15px 40px;
+      border-radius: 50px;
+      border: 2px solid white;
+      font-size: 1.15rem;
+    }
+.whatsapp {
+      display: inline-flex;
+      background: #25D366;
+      background: radial-gradient(circle,rgba(37, 211, 102, 1) 50%, rgba(252, 249, 70, 1) 100%);
+      color: white;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-size: 1.15rem;
+      border-color: white;
+      border: 2px solid white;
+    }
 
 /* MediaQ tablet*/
 @media (min-width: 600px) {
