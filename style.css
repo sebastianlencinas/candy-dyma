@@ -175,6 +175,15 @@ body {
     padding-bottom: 0 !important; 
 }
 
+
+/* ================= RUEDA ================= */
+.rueda{
+  position: absolute;
+  width: 175px;
+  top: 15%;
+  left: 34%;
+}
+
 /* ================= FRASCOS ================= */
 .frascos{
     position: absolute;
@@ -208,7 +217,64 @@ body {
 }
 .logo img{
   height: 60px;
+  animation: 2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
+
+/* Swing */
+@-webkit-keyframes swing {
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 15deg); }
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -10deg); }
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 5deg); }
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -5deg); }
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg); } }
+@-moz-keyframes swing {
+  20% {
+    -moz-transform: rotate3d(0, 0, 1, 15deg); }
+  40% {
+    -moz-transform: rotate3d(0, 0, 1, -10deg); }
+  60% {
+    -moz-transform: rotate3d(0, 0, 1, 5deg); }
+  80% {
+    -moz-transform: rotate3d(0, 0, 1, -5deg); }
+  100% {
+    -moz-transform: rotate3d(0, 0, 1, 0deg); } }
+@-o-keyframes swing {
+  20% {
+    -o-transform: rotate3d(0, 0, 1, 15deg); }
+  40% {
+    -o-transform: rotate3d(0, 0, 1, -10deg); }
+  60% {
+    -o-transform: rotate3d(0, 0, 1, 5deg); }
+  80% {
+    -o-transform: rotate3d(0, 0, 1, -5deg); }
+  100% {
+    -o-transform: rotate3d(0, 0, 1, 0deg); } }
+@keyframes swing {
+  20% {
+    transform: rotate3d(0, 0, 1, 15deg); }
+  40% {
+    transform: rotate3d(0, 0, 1, -10deg); }
+  60% {
+    transform: rotate3d(0, 0, 1, 5deg); }
+  80% {
+    transform: rotate3d(0, 0, 1, -5deg); }
+  100% {
+    transform: rotate3d(0, 0, 1, 0deg); } }
+
+.u--swing {
+  -webkit-transform-origin: top center;
+  -moz-transform-origin: top center;
+  -o-transform-origin: top center;
+  transform-origin: top center;
+  -webkit-animation: swing 2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -moz-animation: swing 2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -o-animation: swing 2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation: swing 2s cubic-bezier(0.445, 0.05, 0.55, 0.95); }
 
 .titulo{
   font-size: xx-large;
