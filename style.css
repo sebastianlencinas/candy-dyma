@@ -70,232 +70,177 @@ body {
   background: #ffffff url("./assets/image/background.jpg") no-repeat center / cover;
 }
 
-.escena{
-    position: relative;
+/* ================= DECORACIÓN ================= */
+
+
+
+.escena-contenedor{
     width: 100%;
-    max-width: 450px;  /* mobile first (max ancho celular) */
-    margin: 0 auto;
-    overflow: hidden; /*Todo lo que sobrepase el limite, no se muestra barra scroll*/
-    min-height: 100vh; /*Fallback se aplica si el navegador no soporta dvh*/
-    min-height: 100dvh; /*Medida dinamica que toma en cuenta barra del navegador*/
-    padding: 0%;
+    min-height: 100vh; 
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center; /*Centrado vertical y horizontal*/
+    overflow: hidden; /*Todo lo que sobrepase el limite, no se muestra barra scroll*/
+    padding: 20px; 
+    box-sizing: border-box; /* Importante para que el padding no rompa el ancho */
   }
-/* ================= TOLDO ================= */
-.toldo{
-    width: 100%;
-    height: auto;
-    top: 10%; /*Relativo a la escena, no al celular*/
-    z-index: 4;
-}
 
-.toldo img{
-    width: 100%;
-    height: auto;
-    display: block;
-}
-/* ================= ESTRUCTURA =============== */
-.estructura {
-  position: absolute;
-  inset: 0; /*top / right / bottom / left = 0*/
-}
-
-/* ================= COLUMNAS ================= */
-.columnas{
+.candy {
     position: absolute;
-    bottom: 35%; /* MISMO bottom que la mesa aprox*/
-    top:28%;
-    left: 0;
-    right: 0;
-    height: auto; /* altura real del soporte */ 
-    pointer-events: none;
+    top: 5.4%; /* Ajusta según dónde quieras que flote sobre el carro */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; /* Espacio entre letras */
+    width: 80%; /* Ancho relativo al carrito */
+    z-index: 25;
+}
+
+.candy img {
+    width: 15%; /* Cada letra ocupa un % del contenedor candy */
+    height: auto;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    /* Animación de entrada */
+    animation: aparecerLetra 0.6s backwards;
+}
+
+/* Efecto HOVER individual */
+.candy img:hover {
+    transform: scale(1.3) rotate(10deg);
+    filter: brightness(1.2);
+}
+
+/* Desfase de animación para que caigan una por una */
+.candy img:nth-child(1) { animation-delay: 0.1s; }
+.candy img:nth-child(2) { animation-delay: 0.2s; }
+.candy img:nth-child(3) { animation-delay: 0.3s; }
+.candy img:nth-child(4) { animation-delay: 0.4s; }
+.candy img:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes aparecerLetra {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+  /* EL CONTENEDOR MÁGICO */
+.carrito-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 450px; /* Tu ancho máximo deseado */
+    /* TRUCO: Define la proporción ancho/alto de tu diseño.
+       Si tu diseño total es de 400px ancho x 600px alto, pon 400/600 
+    */
+    aspect-ratio: 562/1010; 
+    margin: 0 auto;
     
 }
 
-.columna{
-    position: absolute;
-    bottom: 0;
-    width: 20px;
-    height: 100%; /*Altura visible real*/
-    object-fit: cover;
-    overflow: hidden; /*Recorte*/
+/* Imágenes responsivas base */
+.carrito-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
+/* ================== POSICIONAMIENTO ================== */
 
-.columna img{
+/* 1. TOLDO: Se posiciona arriba, ocupando el ancho */
+.toldo {
+    position: absolute;
+    top: 27%;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    /* Ajusta este valor negativo si el toldo debe salir un poco hacia arriba */
+    pointer-events: none; /* Para que no tape clicks */
+    transform: translateZ(50px);
+    /* Fuerza el uso de la GPU para evitar el parpadeo */
+    will-change: transform;
+}
+/* 2. BASE (Mesa + Columnas + toldo) */
+.base-estructura {
+    top:15%;
     width: 100%;
     height: 100%;
+    position: relative;
+    z-index: 1; /* Nivel base */ 
 }
-
-.columna-atras:nth-child(1){
-    left: 29%;
-    bottom: 1%;
-    transform: scale(0.9);
-    filter: brightness(0.9); /* Efecto de sombra para las de atrás */
-    
-}
-.columna-atras:nth-child(2){
-    right: 5%;
-    bottom: 1%;
-    transform: scale(0.95);
-    filter: brightness(0.9); /* Efecto de sombra para las de atrás */
-}
-
-
-.columna-delante:nth-child(1){
-  left:22%;
-
-}
-.columna-delante:nth-child(2){
-  right:2%;
-
-}
-.columnas-atras { z-index: 1; }
-.columnas-delante { z-index: 3; }
-
-/* ================= MESA ================= */
-.mesa{
-    position: absolute;
+.base-estructura img {
     width: 100%;
-    bottom: 12%;
-    left:50%;
-    transform: translate(-50%);
-    z-index: 2;
-}
-
-.mesa img{
-    width: 100%;
+    height: auto;
     display: block;
-    margin: 0 auto;  
-    
 }
 
-/* Eliminamos los paddings en píxeles que rompen la proporción */
-.columna-atras, .columna-delante {
-    padding-bottom: 0 !important; 
-}
-
-
-/* ================= RUEDA ================= */
-.rueda{
-  position: absolute;
-  width: 175px;
-  top: 15%;
-  left: 34%;
+/* 3. RUEDA: Ahora es relativa a la BASE, no a la pantalla */
+.rueda {
+    position: absolute;
+    width: 35% !important; /* Porcentaje relativo al ancho del carrito */
+    bottom: 10%;
+  left: 51.8%;
+    transform: translateX(-50%);
+    z-index: 6;
 }
 
 /* ================= FRASCOS ================= */
-.frascos{
+.frascos-container{
     position: absolute;
-    bottom: 96%;
-    left: 60.5%;
-    transform: translateX(-50%);
+    top:47%; /*Ajusta segun donde caiga la mesa*/
+    left: 6%;
+    width: 100%;
     display: flex;
+    justify-content: center;
     align-items: flex-end;
+    z-index: 7;
     gap: 0.3rem;
   }
   
-  .frascos img {
-    width: 85px;
+.frasco{
+    width: 18%; /* Usar % hace que los frascos escalen con el carro */
+    max-width: 80px; 
     filter: drop-shadow(0 6px 6px rgba(0,0,0,0.25));
-    align-self: flex-end;
     animation: movimientoX 3s ease-in-out infinite;
 }
 
-.frascos .prod img{
-  transform: translateY(12%);
-}
-
-/* ================= DECORACIÓN ================= */
-
-.logo{
-    display: flex;
-    justify-content: center;
-    padding-top: 15%;
-    width: 100%;
-    height: 17vh;
-}
-.logo img{
-  height: 60px;
-  animation: 2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-}
-
-/* Swing */
-@-webkit-keyframes swing {
-  20% {
-    -webkit-transform: rotate3d(0, 0, 1, 15deg); }
-  40% {
-    -webkit-transform: rotate3d(0, 0, 1, -10deg); }
-  60% {
-    -webkit-transform: rotate3d(0, 0, 1, 5deg); }
-  80% {
-    -webkit-transform: rotate3d(0, 0, 1, -5deg); }
-  100% {
-    -webkit-transform: rotate3d(0, 0, 1, 0deg); } }
-@-moz-keyframes swing {
-  20% {
-    -moz-transform: rotate3d(0, 0, 1, 15deg); }
-  40% {
-    -moz-transform: rotate3d(0, 0, 1, -10deg); }
-  60% {
-    -moz-transform: rotate3d(0, 0, 1, 5deg); }
-  80% {
-    -moz-transform: rotate3d(0, 0, 1, -5deg); }
-  100% {
-    -moz-transform: rotate3d(0, 0, 1, 0deg); } }
-@-o-keyframes swing {
-  20% {
-    -o-transform: rotate3d(0, 0, 1, 15deg); }
-  40% {
-    -o-transform: rotate3d(0, 0, 1, -10deg); }
-  60% {
-    -o-transform: rotate3d(0, 0, 1, 5deg); }
-  80% {
-    -o-transform: rotate3d(0, 0, 1, -5deg); }
-  100% {
-    -o-transform: rotate3d(0, 0, 1, 0deg); } }
-@keyframes swing {
-  20% {
-    transform: rotate3d(0, 0, 1, 15deg); }
-  40% {
-    transform: rotate3d(0, 0, 1, -10deg); }
-  60% {
-    transform: rotate3d(0, 0, 1, 5deg); }
-  80% {
-    transform: rotate3d(0, 0, 1, -5deg); }
-  100% {
-    transform: rotate3d(0, 0, 1, 0deg); } }
-
-.u--swing {
-  -webkit-transform-origin: top center;
-  -moz-transform-origin: top center;
-  -o-transform-origin: top center;
-  transform-origin: top center;
-  -webkit-animation: swing 2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  -moz-animation: swing 2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  -o-animation: swing 2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  animation: swing 2s cubic-bezier(0.445, 0.05, 0.55, 0.95); }
 
 .titulo{
-  font-size: xx-large;
-  display: flex;
-  justify-content: center;
   position: absolute;
+  font-size: 3rem;
+  text-align: center;
   top: 20%;
-  width: 100%;
   z-index: 5;
+  width: 100%;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+  color: #3e3e3e;
+  z-index: 20;
+  font-weight: bold;
+  
 }
 
 .slogan{
     position: absolute;
-    bottom: 4.5rem;
-    left:30%;
-    
+    bottom: 29.8%;
+    left:4%;
+    width: 100%;
+    z-index: 8;    
+    text-align: center;
   }
 
   .slogan p{
     font-size: 0.8em;
-    color: #323232;
+    color: #3e3e3e;
+    margin:0;
+    
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
   }
 
 
@@ -312,7 +257,39 @@ body {
 
 @keyframes movimientoX {
   0%,100% { transform: translateX(0); }
-  50% { transform: translateX(-6px); }
+  50% { transform: translateX(-3px); }
+}
+
+/* Definimos la animación */
+@keyframes balanceo3D {
+    0% {
+        transform: rotateX(0deg); /* Posición inicial (colgando recto) */
+        filter: brightness(1); /* Luz normal */
+        transform: translateZ(50px) rotateX(0deg);
+      }
+    50% {
+        transform: rotateX(-20deg); /* Se levanta hacia el frente */
+        filter: brightness(1.1); /* Un poco más de luz al levantarse (opcional) */
+        transform: translateZ(50px) rotateX(-20deg);
+      }
+    100% {
+        transform: rotateX(0deg); /* Vuelve a bajar */
+        filter: brightness(1);
+        transform: translateZ(50px) rotateX(0deg);
+    }
+}
+
+/* Aplicamos la animación al toldo */
+.toldo-3d-anim {
+    /* IMPORTANTE: El punto de pivote debe ser ARRIBA al centro */
+    transform-origin: top center; 
+    
+    /* Duración: 2s,  Curva: ease-in-out (suave), Repetición: infinita */
+    animation: balanceo3D 2.5s ease-in-out infinite;
+    
+    /* Esto ayuda a que el navegador renderice mejor el 3D */
+    backface-visibility: hidden; 
+    perspective: 1000px;
 }
 
 /* * * * * * * * * ABOUT * * * * * * * */
@@ -471,35 +448,10 @@ body {
 
 /* MediaQ tablet*/
 @media (min-width: 600px) {
-  .columnas {
-    height: 300px;
-  }
+
 }
 
 /* MediaQ desktop*/
 @media (min-width: 1024px) {
-  :root { --s: 1.4; }
-
-  .escena {
-    max-width: 900px;
-  }
-
-  .toldo,
-  .columnas,
-  .mesa,
-  .decoracion {
-    position: absolute;
-  }
-
-  .columnas {
-    perspective: 900px;
-  }
-
-  .columna-atras {
-    transform: translateY(-20px) translateZ(-40px);
-  }
-
-  .columna-delante {
-    transform: translateY(10px) translateZ(0);
-  }
+  
 }
