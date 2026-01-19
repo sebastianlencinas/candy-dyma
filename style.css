@@ -114,7 +114,7 @@ body {
 }
 
 .candy img D{
-  padding-top: 4git px;
+  padding-top: 2px;
 }
 
 /* Efecto HOVER individual */
@@ -471,10 +471,24 @@ body {
     font-size: 1.15rem;
     border: 1px solid #ffffff18;
     border-radius: 20px;
-    margin: 1em;
     padding: 0.5em 1em;
     background-color: #0d0d0d85;
 
+}
+
+.cantidad-container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content:space-evenly;
+
+}
+
+.cantidad-container label img{
+  width: 50px;
+  height: auto;
 }
 
 
