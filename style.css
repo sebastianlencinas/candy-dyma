@@ -1,509 +1,530 @@
-/*RESET STYLE DEFECT BROWSER*/
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+  /*RESET STYLE DEFECT BROWSER*/
+  /* http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0 | 20110126
+    License: none (public domain)
+  */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-  text-size-adjust: 100%
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-/* * * * * * * * * * * * * * * * * * * * */
-.delius-regular {
-  font-family: "Delius", cursive;
-  font-weight: 200;
-  font-size: x-large;
-  font-style: normal;
-}
-
-.henny-penny-regular {
-  font-family: "Henny Penny", system-ui;
-  font-weight: 400;
-  font-style: normal;
-}
-
-:root {
-   --s: 1; /*escala base movil */
-}
-
-body {
-  background: #ffffff url("./assets/image/background.jpg") no-repeat center / cover;
-}
-
-/* ================= DECORACIÓN ================= */
-
-/* * { outline: 1px solid red !important; } debug */
-
-.escena-contenedor{
-    width: 100%;
-    min-height: 100vh; 
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; /*Centrado vertical y horizontal*/
-    overflow: hidden; /*Todo lo que sobrepase el limite, no se muestra barra scroll*/
-    padding: 20px; 
-    box-sizing: border-box; /* Importante para que el padding no rompa el ancho */
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed, 
+  figure, figcaption, footer, header, hgroup, 
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    text-size-adjust: 100%
+  }
+  /* HTML5 display-role reset for older browsers */
+  article, aside, details, figcaption, figure, 
+  footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
+  body {
+    line-height: 1;
+  }
+  ol, ul {
+    list-style: none;
+  }
+  blockquote, q {
+    quotes: none;
+  }
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+    content: '';
+    content: none;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
   }
 
-.candy {
-    position: absolute;
-    top: 8%; /* Ajusta según dónde quieras que flote sobre el carro */
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 6px; /* Espacio entre letras */
-    width: 80%; /* Ancho relativo al carrito */
-    z-index: 25;
-}
+  /* * * * * * * * * * * * * * * * * * * * */
+  .delius-regular {
+    font-family: "Delius", cursive;
+    font-weight: 200;
+    font-size: x-large;
+    font-style: normal;
+  }
 
-.candy img {
-    /* width: 15%; Cada letra ocupa un % del contenedor candy */
-    width: clamp(60px, 15%, 100px);
-    max-width: 44px; /* Evita que crezcan demasiado en pantallas grandes */
-    height: auto;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-    /* Animación de entrada */
-    animation: aparecerLetra 0.6s backwards;
-    filter: drop-shadow(5px 5px 5px #2222226c);
-}
+  .henny-penny-regular {
+    font-family: "Henny Penny", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
 
-.candy img D{
-  padding-top: 2px;
-}
+  :root {
+    --s: 1; /*escala base movil */
+  }
 
-/* Efecto HOVER individual */
-.candy img:hover {
-    transform: scale(1.3) rotate(10deg);
-    filter: brightness(1.2);
-}
+  body {
+    background: #ffffff url("./assets/image/background.jpg") no-repeat center / cover;
+  }
 
-/* Desfase de animación para que caigan una por una */
-.candy img:nth-child(1) { animation-delay: 0.1s; }
-.candy img:nth-child(2) { animation-delay: 0.2s; }
-.candy img:nth-child(3) { animation-delay: 0.3s; }
-.candy img:nth-child(4) { animation-delay: 0.4s; }
-.candy img:nth-child(5) { animation-delay: 0.5s; }
+  /* ================= DECORACIÓN ================= */
 
-@keyframes aparecerLetra {
-    0% {
-        opacity: 0;
-        transform: translateY(-50px) scale(0.5);
+  /* * { outline: 1px solid red !important; } debug */
+
+  .escena-contenedor{
+      width: 100%;
+      min-height: 100vh; 
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; /*Centrado vertical y horizontal*/
+      overflow: hidden; /*Todo lo que sobrepase el limite, no se muestra barra scroll*/
+      padding: 20px; 
+      box-sizing: border-box; /* Importante para que el padding no rompa el ancho */
     }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
 
-  /* EL CONTENEDOR MÁGICO */
-.carrito-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 450px; /* Tu ancho máximo deseado */
-    /* TRUCO: Define la proporción ancho/alto de tu diseño.
-       Si tu diseño total es de 400px ancho x 600px alto, pon 400/600 
-    */
-    aspect-ratio: 562/1010; 
-    margin: 0 auto;
+  .candy {
+      position: absolute;
+      top: 8%; /* Ajusta según dónde quieras que flote sobre el carro */
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px; /* Espacio entre letras */
+      width: 80%; /* Ancho relativo al carrito */
+      z-index: 25;
+  }
+
+  .candy img {
+      /* width: 15%; Cada letra ocupa un % del contenedor candy */
+      width: clamp(60px, 15%, 100px);
+      max-width: 44px; /* Evita que crezcan demasiado en pantallas grandes */
+      height: auto;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      /* Animación de entrada */
+      animation: aparecerLetra 0.6s backwards;
+      filter: drop-shadow(5px 5px 5px #2222226c);
+  }
+
+  .candy img D{
+    padding-top: 2px;
+  }
+
+  /* Efecto HOVER individual */
+  .candy img:hover {
+      transform: scale(1.3) rotate(10deg);
+      filter: brightness(1.2);
+  }
+
+  /* Desfase de animación para que caigan una por una */
+  .candy img:nth-child(1) { animation-delay: 0.1s; }
+  .candy img:nth-child(2) { animation-delay: 0.2s; }
+  .candy img:nth-child(3) { animation-delay: 0.3s; }
+  .candy img:nth-child(4) { animation-delay: 0.4s; }
+  .candy img:nth-child(5) { animation-delay: 0.5s; }
+
+  @keyframes aparecerLetra {
+      0% {
+          opacity: 0;
+          transform: translateY(-50px) scale(0.5);
+      }
+      100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+      }
+  }
+
+    /* EL CONTENEDOR MÁGICO */
+  .carrito-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 450px; /* Tu ancho máximo deseado */
+      /* TRUCO: Define la proporción ancho/alto de tu diseño.
+        Si tu diseño total es de 400px ancho x 600px alto, pon 400/600 
+      */
+      aspect-ratio: 562/1010; 
+      margin: 0 auto;
+      
+  }
+
+  /* Imágenes responsivas base */
+  .carrito-wrapper img {
+      display: block;
+      width: 100%;
+      height: auto;
+  }
+  /* ================== POSICIONAMIENTO ================== */
+
+  /* 1. TOLDO: Se posiciona arriba, ocupando el ancho */
+  .toldo {
+      position: absolute;
+      top: 27%;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      /* Ajusta este valor negativo si el toldo debe salir un poco hacia arriba */
+      pointer-events: none; /* Para que no tape clicks */
+      transform: translateZ(50px);
+      /* Fuerza el uso de la GPU para evitar el parpadeo */
+      will-change: transform;
+  }
+  /* 2. BASE (Mesa + Columnas + toldo) */
+  .base-estructura {
+      top:15%;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      z-index: 1; /* Nivel base */ 
+  }
+  .base-estructura img {
+      width: 100%;
+      height: auto;
+      display: block;
+      /* -webkit-filter: drop-shadow(5px 5px 5px #222); */
+      filter: drop-shadow(5px 25px 5px #22222232);
+  }
+
+  /* 3. RUEDA: Ahora es relativa a la BASE, no a la pantalla */
+  .rueda {
+      position: absolute;
+      width: 35% !important; /* Porcentaje relativo al ancho del carrito */
+      bottom: 10%;
+    left: 51.8%;
+      transform: translateX(-50%);
+      z-index: 6;
+      filter: drop-shadow(1px 1px 1px #2222226c);
+  }
+
+  /* ================= FRASCOS ================= */
+  .frascos-container{
+      position: absolute;
+      top:47%; /*Ajusta segun donde caiga la mesa*/
+      left: 10%;
+      width: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      z-index: 7;
+      gap: 0.3rem;
+    }
     
-}
-
-/* Imágenes responsivas base */
-.carrito-wrapper img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-/* ================== POSICIONAMIENTO ================== */
-
-/* 1. TOLDO: Se posiciona arriba, ocupando el ancho */
-.toldo {
-    position: absolute;
-    top: 27%;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    /* Ajusta este valor negativo si el toldo debe salir un poco hacia arriba */
-    pointer-events: none; /* Para que no tape clicks */
-    transform: translateZ(50px);
-    /* Fuerza el uso de la GPU para evitar el parpadeo */
-    will-change: transform;
-}
-/* 2. BASE (Mesa + Columnas + toldo) */
-.base-estructura {
-    top:15%;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    z-index: 1; /* Nivel base */ 
-}
-.base-estructura img {
-    width: 100%;
-    height: auto;
-    display: block;
-    /* -webkit-filter: drop-shadow(5px 5px 5px #222); */
-    filter: drop-shadow(5px 25px 5px #22222232);
-}
-
-/* 3. RUEDA: Ahora es relativa a la BASE, no a la pantalla */
-.rueda {
-    position: absolute;
-    width: 35% !important; /* Porcentaje relativo al ancho del carrito */
-    bottom: 10%;
-  left: 51.8%;
-    transform: translateX(-50%);
-    z-index: 6;
-    filter: drop-shadow(1px 1px 1px #2222226c);
-}
-
-/* ================= FRASCOS ================= */
-.frascos-container{
-    position: absolute;
-    top:47%; /*Ajusta segun donde caiga la mesa*/
-    left: 10%;
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    z-index: 7;
-    gap: 0.3rem;
+  .frasco{
+      width: 20%; /* Usar % hace que los frascos escalen con el carro */
+      max-width: 80px; 
+      filter: drop-shadow(0 6px 6px rgba(0,0,0,0.25));
+      animation: movimientoX 3s ease-in-out infinite;
   }
-  
-.frasco{
-    width: 20%; /* Usar % hace que los frascos escalen con el carro */
-    max-width: 80px; 
-    filter: drop-shadow(0 6px 6px rgba(0,0,0,0.25));
-    animation: movimientoX 3s ease-in-out infinite;
-}
 
 
-.titulo{
-  position: absolute;
-  font-size: 3rem;
-  text-align: center;
-  top: 20%;
-  z-index: 5;
-  width: 100%;
-  text-shadow: 6px 6px 6px rgba(255, 255, 255, 0.657);
-  color: #3e3e3e;
-  z-index: 20;
-  font-weight: bold;
-  
-  
-}
-
-.slogan{
+  .titulo{
     position: absolute;
-    bottom: 22%;
-    left:25%;
-    width: 100%;
-    z-index: 8;    
+    font-size: 3rem;
     text-align: center;
-  }
-
-  /* .slogan p{
-    font-size: 0.8em;
+    top: 20%;
+    z-index: 5;
+    width: 100%;
+    text-shadow: 6px 6px 6px rgba(255, 255, 255, 0.657);
     color: #3e3e3e;
-    margin:0;
+    z-index: 20;
+    font-weight: bold;
     
-    text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
-  } */
-
-.slogan img{
-  max-width: 85px;
-  height: auto;
-  filter: drop-shadow(-3px 1px 1px #22222225);
-}
-
-.suelo{
-    position: absolute;
-    bottom: 10%;
-    left:0%;
-    width: 100%;
-    z-index: 0;    
-    text-align: center;
+    
   }
 
-.suelo img{
-  max-width: 500px;
-  height: 60px; 
-  border-radius: 10px 20px;
-  box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.337);
-}
-
-
-
-/*Efectos al click*/
-.frascos a {
-  transition: transform 0.15s ease;
-}
-.frascos a:active {
-  transform: scale(0.92);
-}
-
-
-@keyframes movimientoX {
-  0%,100% { transform: translateX(0); }
-  50% { transform: translateX(-3px); }
-}
-
-/* Definimos la animación */
-@keyframes balanceo3D {
-    0% {
-        transform: rotateX(0deg); /* Posición inicial (colgando recto) */
-        filter: brightness(1); /* Luz normal */
-        transform: translateZ(50px) rotateX(0deg);
-      }
-    50% {
-        transform: rotateX(-20deg); /* Se levanta hacia el frente */
-        filter: brightness(1.1); /* Un poco más de luz al levantarse (opcional) */
-        transform: translateZ(50px) rotateX(-20deg);
-      }
-    100% {
-        transform: rotateX(0deg); /* Vuelve a bajar */
-        filter: brightness(1);
-        transform: translateZ(50px) rotateX(0deg);
+  .slogan{
+      position: absolute;
+      bottom: 22%;
+      left:25%;
+      width: 100%;
+      z-index: 8;    
+      text-align: center;
     }
-}
 
-/* Aplicamos la animación al toldo */
-.toldo-3d-anim {
-    /* IMPORTANTE: El punto de pivote debe ser ARRIBA al centro */
-    transform-origin: top center; 
-    
-    /* Duración: 2s,  Curva: ease-in-out (suave), Repetición: infinita */
-    animation: balanceo3D 2.5s ease-in-out infinite;
-    
-    /* Esto ayuda a que el navegador renderice mejor el 3D */
-    backface-visibility: hidden; 
-    perspective: 1000px;
-}
+    /* .slogan p{
+      font-size: 0.8em;
+      color: #3e3e3e;
+      margin:0;
+      
+      text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+    } */
 
-/* * * * * * * * * ABOUT * * * * * * * */
-#about, #contactos {
-    display: flex;      /* Ayuda a centrar verticalmente si sobra espacio */
+  .slogan img{
+    max-width: 85px;
+    height: auto;
+    filter: drop-shadow(-3px 1px 1px #22222225);
+  }
+
+  .suelo{
+      position: absolute;
+      bottom: 10%;
+      left:0%;
+      width: 100%;
+      z-index: 0;    
+      text-align: center;
+    }
+
+  .suelo img{
+    max-width: 500px;
+    height: 60px; 
+    border-radius: 10px 20px;
+    box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.337);
+  }
+
+
+
+  /*Efectos al click*/
+  .frascos a {
+    transition: transform 0.15s ease;
+  }
+  .frascos a:active {
+    transform: scale(0.92);
+  }
+
+
+  @keyframes movimientoX {
+    0%,100% { transform: translateX(0); }
+    50% { transform: translateX(-3px); }
+  }
+
+  /* Definimos la animación */
+  @keyframes balanceo3D {
+      0% {
+          transform: rotateX(0deg); /* Posición inicial (colgando recto) */
+          filter: brightness(1); /* Luz normal */
+          transform: translateZ(50px) rotateX(0deg);
+        }
+      50% {
+          transform: rotateX(-20deg); /* Se levanta hacia el frente */
+          filter: brightness(1.1); /* Un poco más de luz al levantarse (opcional) */
+          transform: translateZ(50px) rotateX(-20deg);
+        }
+      100% {
+          transform: rotateX(0deg); /* Vuelve a bajar */
+          filter: brightness(1);
+          transform: translateZ(50px) rotateX(0deg);
+      }
+  }
+
+  /* Aplicamos la animación al toldo */
+  .toldo-3d-anim {
+      /* IMPORTANTE: El punto de pivote debe ser ARRIBA al centro */
+      transform-origin: top center; 
+      
+      /* Duración: 2s,  Curva: ease-in-out (suave), Repetición: infinita */
+      animation: balanceo3D 2.5s ease-in-out infinite;
+      
+      /* Esto ayuda a que el navegador renderice mejor el 3D */
+      backface-visibility: hidden; 
+      perspective: 1000px;
+  }
+
+  /* * * * * * * * * ABOUT * * * * * * * */
+  #about, #contactos {
+      display: flex;      /* Ayuda a centrar verticalmente si sobra espacio */
+      flex-direction: column;
+      justify-content: center;
+      margin: 2rem 1rem;
+      min-height: 100dvh; /* Correcto */
+      height: auto;  /* Permite crecer */
+      box-sizing: border-box; /* Asegura que el padding no sume al ancho */    
+  }
+
+  #about{
+      text-align: center;
+      border: 1px solid #00000039;
+      border-radius: 30px;
+      padding: 1em;
+      background: #ea00ff;
+      background: radial-gradient(circle,rgba(234, 0, 255, 0.17) 0%, rgba(252, 240, 70, 0.23) 100%);
+  }
+
+  #about h1{
+  font-size: xx-large;
+  margin-bottom: 0.2em;
+  }
+  #about h2{
+      font-size:1.5rem;
+      margin-bottom: 1em;
+  }
+
+  .info {
+      text-align: center;
+      line-height: 14pt;
+      font-size:1.15rem;
+      color: #222;
+  }
+
+  .redes{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .redes img{
+    width: 25%;
+  }
+
+  .instagram {
+        display: inline-flex;
+        background: #FD1A8D;
+        background: radial-gradient(circle,rgba(253, 26, 141, 1) 50%, rgba(252, 249, 70, 1) 100%);
+        color: white;
+        padding: 15px 20px;
+        border-radius: 50px;
+        border: 2px solid white;
+        font-size: 1.15rem;
+      }
+  .whatsapp {
+        display: inline-flex;
+        background: #25D366;
+        background: radial-gradient(circle,rgba(37, 211, 102, 1) 50%, rgba(252, 249, 70, 1) 100%);
+        color: white;
+        padding: 15px 20px;
+        border-radius: 50px;
+        font-size: 1.15rem;
+        border-color: white;
+        border: 2px solid white;
+      }
+
+  /* * * * * * * * * PRODUCTOS * * * * * * * */
+
+  #productos{
+      display: block;
+      text-align: center;
+      margin: 1.5em;
+      padding-top: 2rem;
+      
+  }
+
+  .sub{
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 2rem 1rem;
-    min-height: 100dvh; /* Correcto */
-    height: auto;  /* Permite crecer */
-    box-sizing: border-box; /* Asegura que el padding no sume al ancho */    
-}
+    
+  }
 
-#about{
-    text-align: center;
-    border: 1px solid #00000039;
-    border-radius: 30px;
-    padding: 1em;
-    background: #ea00ff;
-    background: radial-gradient(circle,rgba(234, 0, 255, 0.17) 0%, rgba(252, 240, 70, 0.23) 100%);
-}
+  #productos .sub h2{
+      font-size:1.5rem;
+      margin-bottom: 1em;
+      text-decoration: underline;
+  }
 
-#about h1{
- font-size: xx-large;
- margin-bottom: 0.2em;
-}
-#about h2{
-    font-size:1.5rem;
-    margin-bottom: 1em;
-}
-
-.info {
-    text-align: center;
+  #productos p{
     line-height: 14pt;
     font-size:1.15rem;
     color: #222;
-}
+  }
 
-.redes{
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.redes img{
-  width: 25%;
-}
-
-.instagram {
-      display: inline-flex;
-      background: #FD1A8D;
-      background: radial-gradient(circle,rgba(253, 26, 141, 1) 50%, rgba(252, 249, 70, 1) 100%);
-      color: white;
-      padding: 15px 20px;
-      border-radius: 50px;
-      border: 2px solid white;
-      font-size: 1.15rem;
-    }
-.whatsapp {
-      display: inline-flex;
-      background: #25D366;
-      background: radial-gradient(circle,rgba(37, 211, 102, 1) 50%, rgba(252, 249, 70, 1) 100%);
-      color: white;
-      padding: 15px 20px;
-      border-radius: 50px;
-      font-size: 1.15rem;
-      border-color: white;
-      border: 2px solid white;
-    }
-
-/* * * * * * * * * PRODUCTOS * * * * * * * */
-
-#productos{
-    display: block;
-    text-align: center;
-    margin: 1.5em;
-    padding-top: 2rem;
-    
-}
-
-.sub{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  
-}
-
-#productos .sub h2{
-    font-size:1.5rem;
-    margin-bottom: 1em;
-    text-decoration: underline;
-}
-
-#productos p{
-  line-height: 14pt;
-  font-size:1.15rem;
-  color: #222;
-}
-
-.carousel-inner img {
-  height: 45vh; /* Define la altura deseada en píxeles, vh, u otra unidad */
-  max-height: 500px;
-  width: 100%;
-  object-fit: cover; /* Ajusta la imagen para cubrir el área sin distorsionarla */
-  object-position:center; /* Centra la imagen dentro de su contenedor */
-  border: 1px solid #00000039;
-  border-radius: 30px;
-}
-
-
-
-/* * * * * * * * * CONTACTOS * * * * * * * */
-
-#contactos{
-    padding-top: 2rem;
-    display: block;
-    text-align: center;
-
-}
-
-#contactos h2{
-    font-size:1.5rem;
-    margin-bottom: 1em;
-    text-decoration: underline;
-
-}
-
-.formulario{
-    height: auto;
-    min-height: 500px;
-    padding: 2em 1.5em;
+  .carousel-inner img {
+    height: 45vh; /* Define la altura deseada en píxeles, vh, u otra unidad */
+    max-height: 500px;
+    width: 100%;
+    object-fit: cover; /* Ajusta la imagen para cubrir el área sin distorsionarla */
+    object-position:center; /* Centra la imagen dentro de su contenedor */
     border: 1px solid #00000039;
     border-radius: 30px;
-    padding: 1.5em;
-    margin: 1.5em;
-    background-image: url(./assets/image/contact/back-2.jpg);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: center; /* Center the image */
-    background-size: cover; /* Scale to cover the entire container */
-    background-color: #f6f6f61f;
-}
+  }
 
-.nombre, .invitados, .contanos label{
-    color: #ffff;
-    text-decoration:underline;
-    font-size: 1.15rem;
-    border: 1px solid #ffffff18;
+
+
+  /* * * * * * * * * CONTACTOS * * * * * * * */
+
+  #contactos{
+      padding-top: 2rem;
+      display: block;
+      text-align: center;
+
+  }
+
+  #contactos h2{
+      font-size:1.5rem;
+      margin-bottom: 1em;
+      text-decoration: underline;
+
+  }
+
+  .formulario{
+      height: auto;
+      min-height: 500px;
+      padding: 2em 1.5em;
+      border: 1px solid #00000039;
+      border-radius: 30px;
+      padding: 1.5em;
+      margin: 1.5em;
+      background-image: url(./assets/image/contact/back-2.jpg);
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-position: center; /* Center the image */
+      background-size: cover; /* Scale to cover the entire container */
+      background-color: #f6f6f61f;
+  }
+
+  .nombre, .invitados, .contanos label{
+      color: #ffff;
+      
+      font-size: 1.15rem;
+      font-weight: bold;
+      border: 1px solid #ffffff18;
+      border-radius: 20px;
+      padding: 0.5em 1em;
+      background-color: #0d0d0d85;
+  }
+
+ 
+
+  .cantidad-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:space-evenly;
+    gap: 4px;
+    
+  }
+  .cantidad-container label{
+    cursor: pointer;
+    border: 1px solid transparent;
     border-radius: 20px;
-    padding: 0.5em 1em;
-    background-color: #0d0d0d85;
-}
+    transition: all 0.3s ease;
+    padding: 5px;
+  }
 
-.cantidad-container{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content:space-evenly;
-  gap: 3px;
-}
-.cantidad-container label{
-  border: 1px solid #ffffffb0;
-  background-color: #ffffff85;
-  border-radius: 20px;
-}
+  .cantidad-container label img{
+    width: 88px;
+    height: auto;
+  }
+  .form-check{
+    padding-left: 0 !important;
+    padding-bottom: 0.5em;
+  }
+/*Oculta el circulo del imput radio*/
+  .cantidad-container .form-check-input {
+    display: none;
+  }
 
-.cantidad-container label img{
-  width: 88px;
-  height: auto;
-}
+  /*Cuando el imput esta checked, estiliza su label*/
+  .cantidad-container .form-check-input:checked + label{
+    background-color: #ffffff;
+    border: 2px solid #0e7b00;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #3bd200;
+  }
 
 
+  /* MediaQ tablet*/
+  @media (min-width: 600px) {
 
-/* MediaQ tablet*/
-@media (min-width: 600px) {
+  }
 
-}
-
-/* MediaQ desktop*/
-@media (min-width: 1024px) {
-  
-}
+  /* MediaQ desktop*/
+  @media (min-width: 1024px) {
+    
+  }
