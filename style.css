@@ -465,7 +465,8 @@ body {
     background-size: cover; /* Scale to cover the entire container */
     background-color: #f6f6f61f;
 }
-.formulario label{
+
+.nombre, .invitados, .contanos label{
     color: #ffff;
     text-decoration:underline;
     font-size: 1.15rem;
@@ -473,7 +474,6 @@ body {
     border-radius: 20px;
     padding: 0.5em 1em;
     background-color: #0d0d0d85;
-
 }
 
 .cantidad-container{
@@ -483,11 +483,16 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content:space-evenly;
-
+  gap: 3px;
+}
+.cantidad-container label{
+  border: 1px solid #ffffffb0;
+  background-color: #ffffff85;
+  border-radius: 20px;
 }
 
 .cantidad-container label img{
-  width: 50px;
+  width: 88px;
   height: auto;
 }
 
