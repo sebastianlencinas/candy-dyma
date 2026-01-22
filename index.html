@@ -107,7 +107,7 @@
 
     <section id="productos">
         <div class="sub">
-            <h2  class="delius-regular">Productos</h2>
+            <h2  class="delius-regular">Productos 🎁</h2>
             <p>Contamos con una amplia variedad de gomitas en todas sus formas y sabores!</p>
         </div>
         <div class="carrusel">
@@ -149,14 +149,18 @@
 
     <section id="contactos">
         <div class="sub">
-            <h2 class="delius-regular">Contacto</h2>
+            <h2 class="delius-regular">Contactanos 📒</h2>
         </div>
         
         
-        <form class="formulario">
+        <form class="formulario" id="my-form" action="https://formspree.io/f/xkoolqyd" method="POST">
             <div class="form-group my-3 nombre">
                 <label for="Nombre">Nombre</label>
-                <input type="text" class="form-control" id="Nombre" placeholder="Nombre">
+                <input type="text" name="nombre" class="form-control" id="Nombre" placeholder="...">
+            </div>
+            <div class="form-group my-3 celular">
+                <label for="Telefono">Telefono</label>
+                <input type="number" name="telefono" class="form-control" id="Telefono" placeholder="11.1111.1111">
             </div>
             <div class="my-3 form-group invitados">
                 <label for="exampleFormControlSelect2">Cantidad de invitados</label>
@@ -182,21 +186,22 @@
             </div>
             <div class="form-group my-3 contanos">
                 <label for="exampleFormControlTextarea1">Contanos tu evento</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="..." ></textarea>
+                <textarea name="texto-ingresado" class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="..." ></textarea>
             </div>
             
-            <div class="pulse col-auto my-3 pt-4">
-                <input type="image" src="./assets/image/contact/btn.png" alt="Enviar">
+            <div class="pulse btn-container my-3 pt-4">
+                <input type="submit" value="Enviar" class="boton-imagen">
             </div>
             
             </form>
-
-            <!-- <p>Tambien nos podes contactar a travez de nuestras redes</p> -->
+            <p id="my-form-status"></p> <!-- respusta de formspree -->
+       
             
             
     </section>
         
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="./main.js"></script>
 </body>
 </html>

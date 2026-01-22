@@ -504,7 +504,7 @@
       background-color: #f6f6f61f;
   }
 
-  .nombre, .invitados label{
+  .nombre, .invitados, .celular label{
       color: #ffff;
       font-size: 1.15rem;
       font-weight: bold;
@@ -567,6 +567,28 @@
     border: 2px solid #0e7b00;
     transform: scale(1.1);
     box-shadow: 0 0 10px #3bd200;
+  }
+
+  .btn-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  .boton-imagen{
+    background-image: url(./assets/image/contact/btn.png);
+    /* background-size: cover; Ajusta la imagen al tamanio del btn */
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: transparent;
+    width: 50%;
+    height: 100px;
+    z-index: 40;
+
   }
 
 
