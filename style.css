@@ -262,7 +262,7 @@
   .contenedor-suelo{
     position: absolute;
     left:0%;
-    bottom: 8%;
+    bottom: 1%;
     z-index: 0; 
     /*Ajustes visuales*/
     width: 100%;
@@ -273,12 +273,12 @@
 
   .suelo-infinito{
     width: 100%;
-    height: 90%;
+    height: 100%;
     
     background-image: url("./assets/image/carrito/suelo.png");
     background-repeat: repeat-x; /* Se repite horizontalmente */
     /* Forzamos a que el patrón mida sus 1920px originales */
-    background-size: 1920px 89px;
+    background-size: 1920px 40px;
     
     animation: moverSuelo 30s linear infinite;
 
@@ -502,16 +502,35 @@
       background-position: center; /* Center the image */
       background-size: cover; /* Scale to cover the entire container */
       background-color: #f6f6f61f;
+      columns: 1;
+      row-gap: 50px;
+      display: flex;
+      flex-direction: column; /* Alinea los elementos verticalmente */
+      
   }
 
-  .nombre, .invitados, .celular label{
-      color: #ffff;
-      font-size: 1.15rem;
-      font-weight: bold;
-      border: 1px solid #ffffff18;
-      border-radius: 20px;
-      padding: 0.5em 1em;
-      background-color: #0d0d0d85;
+  .nombre input, .invitados label, .celular input{
+    color: #ffff;
+    font-size: 1.15rem;
+    font-weight: bold;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+    padding: 0.5em 1em;
+    background-color: #0d0d0d85;
+    width: 100%;
+    height: auto;
+  }
+  
+  .nombre input::placeholder, .celular input::placeholder, .contanos textarea::placeholder{
+    color: #ffff;
+    font-size: 1.15rem;
+
+  }
+
+  .contanos textarea::placeholder{
+    color: #000000;
+    font-size: 1.15rem;
+
   }
 
   .contanos{
@@ -525,6 +544,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
   }
 
 
@@ -582,20 +602,183 @@
     /* background-size: cover; Ajusta la imagen al tamanio del btn */
     background-repeat: no-repeat;
     background-color: transparent;
+    background-position-x: 50%;
     border: none;
     cursor: pointer;
     color: transparent;
     width: 50%;
     height: 100px;
     z-index: 40;
+ 
 
   }
-
+  /*Desactiva los saltos de linea*/
+  .on-table{
+      display: none;
+    }
 
   /* MediaQ tablet*/
-  @media (min-width: 600px) {
+  @media (min-width: 760px) 
+  {
+    
+    .on-table{
+      display: inline;
+    }
+
+     #about, #contactos {
+      display: flex;      /* Ayuda a centrar verticalmente si sobra espacio */
+      flex-direction: column;
+      justify-content: center;
+      margin: 2rem 1rem;
+      min-height: 100dvh; /* Correcto */
+      height: auto;  /* Permite crecer */
+      box-sizing: border-box; /* Asegura que el padding no sume al ancho */    }
+
+  #about{
+          text-align: center;
+          border: 1px solid #00000039;
+          border-radius: 30px;
+          margin: 1em;
+          padding: 2em;
+          background: #ea00ff;
+          background: radial-gradient(circle,rgba(234, 0, 255, 0.17) 0%, rgba(252, 240, 70, 0.23) 100%);
+          font-size: 2rem;
+        }
+
+  #about h1
+    {
+        font-size: 4rem;
+        margin-bottom: 0.2em;
+    }
+  #about h2{
+        font-size:2.3rem;
+        margin-bottom: 1em;
+        }
+
+  .info {
+        text-align: center;
+        line-height: 20pt;
+        font-size:1.5rem;
+        color: #222;
+      }
+  
+      /* * * * * * * * * * * * * * * * */
+  #productos .sub h2{
+      font-size:2.5rem;
+      margin-bottom: 1em;
+      text-decoration: underline;
+  }
+
+  #productos p{
+    line-height: 20pt;
+    font-size:1.5rem;
+    color: #222;
+    padding-bottom: 2em;
+  }
+
+  .carousel-inner img {
+    height: 100vh; /* Define la altura deseada en píxeles, vh, u otra unidad */
+    max-height: 700px;
+    width: 100%;
+    object-fit: cover; /* Ajusta la imagen para cubrir el área sin distorsionarla */
+    object-position:center; /* Centra la imagen dentro de su contenedor */
+    border: 1px solid #00000039;
+    border-radius: 30px;
+    
+  }
+
+    /* * * * * * * * * * * * * * * * */  /* * * * * * * * * * * * * * * * */  /* * * * * * * * * * * * * * * * */
+
+    #contactos h2{
+      font-size:2.5rem;
+      margin-bottom: 1em;
+      text-decoration: underline;
 
   }
+
+    .nombre input, .invitados label, .celular input{
+    font-size: 1.5rem;
+    
+  }
+  
+  .nombre input::placeholder, .celular input::placeholder, .contanos textarea::placeholder{
+    font-size: 1.5rem;
+  }
+
+  .contanos textarea::placeholder{
+    color: #000000;
+    font-size: 1.15rem;
+
+  }
+
+  .contanos{
+    color: #ffff;
+    font-size: 1.15rem;
+    font-weight: bold;
+    border: 1px solid #ffffff18;
+    border-radius: 20px;
+    padding: 0.5em 1em;
+    background-color: #0d0d0d85;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+ 
+
+  .cantidad-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:space-evenly;
+    gap: 4px;
+    
+  }
+  .cantidad-container label{
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    padding: 5px;
+  }
+
+  .cantidad-container label img{
+    width: 100px;
+    height: auto;
+  }
+  .form-check{
+    padding-left: 0 !important;
+    padding-bottom: 0.5em;
+  }
+/*Oculta el circulo del imput radio*/
+  .cantidad-container .form-check-input {
+    display: none;
+  }
+
+  /*Cuando el imput esta checked, estiliza su label*/
+  .cantidad-container .form-check-input:checked + label{
+    background-color: #ffffff;
+    border: 2px solid #0e7b00;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #3bd200;
+  }
+
+  .btn-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  .boton-imagen{
+    width: 100%;
+  }
+
+}
 
   /* MediaQ desktop*/
   @media (min-width: 1024px) {
