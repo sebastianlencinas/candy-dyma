@@ -25,7 +25,7 @@
                 <img src="./assets/image/candy/c.png" alt="C" class="letra">
                 <img src="./assets/image/candy/a.png" alt="A" class="letra">
                 <img src="./assets/image/candy/n.png" alt="N" class="letra">
-                <img src="./assets/image/candy/d.png" alt="D" class="letra">
+                <img class="D" src="./assets/image/candy/d.png" alt="D" class="letra">
                 <img src="./assets/image/candy/y.png" alt="Y" class="letra">
             </div>
 
@@ -158,12 +158,28 @@
         <form class="formulario" id="my-form" action="https://formspree.io/f/xkoolqyd" method="POST">
             <div class="form-group my-3 nombre">
                 <label for="Nombre"></label>
-                <input type="text" name="nombre" class="form-control" id="Nombre" placeholder="Nombre">
+                <input 
+                    type="text" 
+                    name="nombre" 
+                    class="form-control" 
+                    id="Nombre" 
+                    placeholder="Nombre"
+                    required
+                    minlength="3"
+                    maxlength="30">
             </div>
             <div class="form-group my-3 celular">
                 <label for="Telefono"></label>
-                <input type="number" name="telefono" class="form-control" id="Telefono" placeholder="Tel: 11.1111.1111 ">
-            </div>
+                <input 
+                    type="tel" 
+                    name="telefono" 
+                    class="form-control" 
+                    id="Telefono" 
+                    placeholder="Tel: (+541112345678) o (1112345678) "
+                    required
+                    pattern="^(\+\d{1,3})?\d{10,13}$"
+                    title="Debe incluir entre 10 y 13 numeros. El codigo pais ej(+54) es opcional."
+                </div>
             <div class="my-3 form-group invitados">
                 <label for="exampleFormControlSelect2">Cantidad de invitados</label>
             </div>
@@ -188,7 +204,16 @@
             </div>
             <div class="form-group my-3 contanos">
                 <label for="exampleFormControlTextarea1"></label>
-                <textarea name="texto ingresado" class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Contanos tu evento" ></textarea>
+                <textarea 
+                    name="texto ingresado" 
+                    class="form-control" 
+                    id="exampleFormControlTextarea1" 
+                    rows="4" 
+                    placeholder="Contanos tu evento"
+                    required
+                    maxlength="300">
+                </textarea>
+                <div id="char-count" class="text-end text-muted small">0 / 300</div>
             </div>
             
             <div class="pulse btn-container my-3 pt-4">
