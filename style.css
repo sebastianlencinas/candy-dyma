@@ -478,14 +478,12 @@
       padding-top: 2rem;
       display: block;
       text-align: center;
-
   }
 
   #contactos h2{
       font-size:1.5rem;
       margin-bottom: 1em;
       text-decoration: underline;
-
   }
 
   .formulario{
@@ -494,43 +492,37 @@
       padding: 2em 1.5em;
       border: 1px solid #00000039;
       border-radius: 30px;
-      padding: 1.5em;
-      margin: 1.5em;
+      margin: 1em 0.5em;
       background-image: url(./assets/image/contact/back-2.jpg);
       background-attachment: fixed;
       background-repeat: no-repeat;
       background-position: center; /* Center the image */
       background-size: cover; /* Scale to cover the entire container */
       background-color: #f6f6f61f;
-      columns: 1;
-      row-gap: 50px;
+      row-gap: 10px;
       display: flex;
       flex-direction: column; /* Alinea los elementos verticalmente */
-      
   }
 
   .nombre input, .invitados label, .celular input{
     color: #ffff;
-    font-size: 1.15rem;
+    font-size: 1rem;
     font-weight: bold;
     border: 1px solid #ffffff;
     border-radius: 20px;
-    padding: 0.5em 1em;
-    background-color: #0d0d0d85;
+    background-color: #00000085;
     width: 100%;
-    height: auto;
+    height:2.5em;
+    align-content: center;
   }
   
   .nombre input::placeholder, .celular input::placeholder, .contanos textarea::placeholder{
     color: #ffff;
-    font-size: 1.15rem;
-
   }
 
   .contanos textarea::placeholder{
     color: #000000;
     font-size: 1.15rem;
-
   }
 
   .contanos{
@@ -544,11 +536,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
   }
-
-
- 
 
   .cantidad-container{
     width: 100%;
@@ -557,7 +545,8 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content:space-evenly;
-    gap: 4px;
+    gap: 0px 50px;
+
     
   }
   .cantidad-container label{
@@ -565,7 +554,7 @@
     border: 1px solid transparent;
     border-radius: 20px;
     transition: all 0.3s ease;
-    padding: 5px;
+    
   }
 
   .cantidad-container label img{
@@ -597,6 +586,7 @@
     text-align: center;
     width: 100%;
   }
+
   .boton-imagen{
     background-image: url(./assets/image/contact/btn.png);
     /* background-size: cover; Ajusta la imagen al tamanio del btn */
@@ -609,7 +599,7 @@
     width: 50%;
     height: 100px;
     z-index: 40;
- 
+    background-size: contain;
 
   }
   /*Desactiva los saltos de linea*/
@@ -618,13 +608,37 @@
     }
 
   /* MediaQ tablet*/
-  @media (min-width: 760px) 
+  @media (min-width: 600px) 
   {
+    .candy img{
+      max-width: 70px;
+    }
+
+    .titulo{
+      font-size: 5rem;
+    }
+
+    .carrito-wrapper {
+      max-width: 600px;
+    }
+
+    .frasco {
+      max-width: 120px;
+    }
+
+    .slogan img {
+      max-width: 140px;
+    }
     
     .on-table{
       display: inline;
     }
 
+    .contenedor-suelo{
+      height: 140px;   }
+
+    .suelo-infinito {
+      background-size: 1920px 55px;}
      #about, #contactos {
       display: flex;      /* Ayuda a centrar verticalmente si sobra espacio */
       flex-direction: column;
@@ -677,23 +691,15 @@
   }
 
   .carousel-inner img {
-    height: 100vh; /* Define la altura deseada en píxeles, vh, u otra unidad */
-    max-height: 700px;
+    height: 70vh; /* Define la altura deseada en píxeles, vh, u otra unidad */
+    max-height: 1000px;
     width: 100%;
-    object-fit: cover; /* Ajusta la imagen para cubrir el área sin distorsionarla */
-    object-position:center; /* Centra la imagen dentro de su contenedor */
-    border: 1px solid #00000039;
-    border-radius: 30px;
-    
   }
 
     /* * * * * * * * * * * * * * * * */  /* * * * * * * * * * * * * * * * */  /* * * * * * * * * * * * * * * * */
-
     #contactos h2{
       font-size:2.5rem;
       margin-bottom: 1em;
-      text-decoration: underline;
-
   }
 
     .nombre input, .invitados label, .celular input{
@@ -708,74 +714,35 @@
   .contanos textarea::placeholder{
     color: #000000;
     font-size: 1.15rem;
-
   }
 
   .contanos{
-    color: #ffff;
     font-size: 1.15rem;
-    font-weight: bold;
-    border: 1px solid #ffffff18;
-    border-radius: 20px;
     padding: 0.5em 1em;
-    background-color: #0d0d0d85;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
-
-
- 
 
   .cantidad-container{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content:space-evenly;
     gap: 4px;
-    
-  }
-  .cantidad-container label{
-    cursor: pointer;
-    border: 1px solid transparent;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    padding: 5px;
   }
 
   .cantidad-container label img{
     width: 100px;
-    height: auto;
-  }
-  .form-check{
-    padding-left: 0 !important;
-    padding-bottom: 0.5em;
-  }
-/*Oculta el circulo del imput radio*/
-  .cantidad-container .form-check-input {
-    display: none;
   }
 
-  /*Cuando el imput esta checked, estiliza su label*/
-  .cantidad-container .form-check-input:checked + label{
-    background-color: #ffffff;
-    border: 2px solid #0e7b00;
-    transform: scale(1.1);
-    box-shadow: 0 0 10px #3bd200;
+  .form-check{
+    padding-bottom: 0;
   }
 
   .btn-container{
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     align-items: center;
     justify-content: center;
     text-align: center;
     width: 100%;
   }
   .boton-imagen{
-    width: 100%;
+    background-size: 150px;
   }
 
 }
