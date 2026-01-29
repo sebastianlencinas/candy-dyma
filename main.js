@@ -1,3 +1,38 @@
+//*************************************************//
+//*******MENSAJE EN FORMULARIOS REQUERIDOS*********//
+document.addEventListener("DOMContentLoaded", function(){
+    //Seleccionamos todos los campos requeridos del formulario
+    const inputs = document.querySelectorAll("input, textarea, select");
+
+    inputs.forEach(input => {
+        //1. Cuando el campo es invalido (se intenta enviar vacio o mal formato)
+        input.addEventListener("invalid", function(){
+            if (this.validity.valueMissing){
+                //Mensaje si el campo esta vacio
+                this.setCustomValidity("Este campo es necesario para poder contactarte. 😅");
+            }
+            else if (this.validity.patternMismatch){
+                //Mensaje si el campo esta vacio    
+                this.setCustomValidity("El formato no es correcto. Revisa los números.");
+            }
+            else if (this.validity.tooShort){
+                //Mensaje si el texto es muy corto.
+                this.setCustomValidity(`Debes escribir al menos ${this.minLength} caracteres.`);
+            }
+            else {
+                //Mensaje por defecto.
+                this.setCustomValidity("Por favor, revisa este campo.");
+            }
+        });
+        //2. Limpiar el mensaje en cuanto el usuario comienza a escribir nuevamente.
+        input.addEventListener("input", function(){
+            this.setCustomValidity("");
+        });
+    });
+});
+
+// *********************************************** //
+// *********************************************** //
 var form = document.getElementById("my-form");
 
 const textarea = document.getElementById("exampleFormControlTextarea1");
@@ -5,10 +40,10 @@ const charCount = document.getElementById("char-count");
 
 textarea.addEventListener("input", () => {
     const currentLength = textarea.value.length;
-    charCount.innerText = `${currentLength} / 200`;
+    charCount.innerText = `${currentLength} / 300`;
     
     // Un toque extra: ponerlo en rojo si llega al límite
-    if (currentLength >= 200) {
+    if (currentLength >= 250) {
         charCount.classList.add("text-danger");
     } else {
         charCount.classList.remove("text-danger");
@@ -23,18 +58,19 @@ function showAlert(message, type)
     let icon = "";
 
     //Seleccionamos el icono segun el tipo de alerta
-    if (type === "seccess") icon = "#check-circle-fill";
+    if (type === "success") icon = "#check-circle-fill";
     else if (type === "danger") icon = "#exclamation-triangle-fill";
     else if (type === "warning") icon = "#exclamation-triangle-fill";
-    else icon = "#info-fill"; 
+    else icon = "fa-info-circle"; 
 
     //Creamos el msj personalizado 
-    status.innerHTML = 
-    `<div class= "alert alert-${type} d-flex align-items-center alert-dismissible fade show" role= "alert"> 
-        <svg class= "bi flex-shrink-0 me-2" role= "img" width"24" height="24"><use xlink:href="${icon}"/></svg>
-         <div> ${message}</div>
+    status.innerHTML = `
+    <div class="alert alert-${type} d-flex align-items-center alert-dismissible fade show w-100 text-start" role="alert" style="margin-top: 20px;"> 
+        <i class="fas ${icon} me-2" style="font-size: 1.2rem;"></i>
+        <div style="flex-grow: 1; padding-right: 20px;">
+            ${message}
+        </div>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-
     </div>`;
 }
 
@@ -87,7 +123,7 @@ async function handleSubmit(event)
         if(response.ok) 
         {
             showAlert("Gracias por contactarnos! en breve recibirá respuesta 🎉" , "success");
-            formElemnt.reset();
+            formElement.reset();
         }
         else
         {
