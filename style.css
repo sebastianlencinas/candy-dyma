@@ -229,7 +229,7 @@
     /* Forzamos a que el patrón mida sus 1920px originales */
     background-size: 1920px 40px;
     
-    animation: moverSuelo 30s linear infinite;
+    animation: moverSuelo 20s linear infinite;
 
     box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.337);
   }
@@ -355,7 +355,7 @@
   }
 
   .redes img{
-    width: 25%;
+    width: 30%;
   }
 
   .instagram {
@@ -385,9 +385,14 @@
   #productos{
       display: block;
       text-align: center;
-      margin: 1.5em;
-      padding-top: 2rem;
+      margin: 2rem 1rem;
       
+      border: 1px solid #00000039;
+      border-radius: 30px;
+      padding: 1em;
+      background: #ea00ff;
+      background: radial-gradient(circle,rgba(234, 0, 255, 0.17) 0%, rgba(252, 240, 70, 0.23) 100%);
+      box-sizing: border-box;
   }
 
   .sub{
@@ -575,6 +580,7 @@
       display: none;
     }
 
+
   /* MediaQ tablet*/
   @media (min-width: 600px) 
   {
@@ -719,4 +725,150 @@
   /* MediaQ desktop*/
   @media (min-width: 1024px) {
     
+      .candy img{
+        max-width: 45px;
+      }
+
+      .titulo{
+        font-size: 3.5rem;
+      }
+
+      .carrito-wrapper {
+        max-width: 600px;
+        width: 35%;
+      }
+
+      .frasco {
+        max-width: 110px;
+      }
+
+      .slogan img {
+        max-width: 90px;
+      }
+      
+      .on-tablet{
+        display: inline;
+      }
+
+      .contenedor-suelo{
+        height: 105px;   }
+
+      .suelo-infinito {
+        background-size: 1920px 55px;}
+    /**********************************************/
+    .about-productos{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2rem;
+    width: 100%;
+    padding: 2rem;
+  }
+
+  #about,
+  #productos{
+    width: 50%;
+    max-width: 600px;
+    min-height: 100dvh;
+  }
+
+  #about{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #about h1
+      {
+          font-size: 1.5rem;
+          margin-bottom: 0.2em;
+      }
+  #about h2{
+          font-size:1rem;
+          margin-bottom: 1em;
+          }
+  .info {
+          text-align: center;
+          line-height: 12pt;
+          font-size:0.8rem;
+          color: #222;
+        }
+
+  #productos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+   #productos .sub h2{
+        font-size:1.5rem;
+        top: 1em;
+        margin-bottom: 1em;
+        text-decoration: underline;
+    }
+
+    #productos p{
+      line-height: 20pt;
+      font-size:1rem;
+      color: #222;
+      padding-bottom: 1em;
+    }
+
+    .carousel-inner img {
+      height: 70vh; /* Define la altura deseada en píxeles, vh, u otra unidad */
+      max-height: 1000px;
+      width: 100%;
+    }
+
+
+
+        /* * * * * * * * * * * * * * * * */
+      /* * * * * * * * * * * * * * * * */  /* * * * * * * * * * * * * * * * */  /* * * * * * * * * * * * * * * * */
+    #contactos h2{
+        font-size:1.5rem;
+        padding-bottom: 1em;
+    }
+
+      .nombre input, .invitados label, .celular input{
+      font-size: 1rem;
+      
+    }
+    
+    .nombre input::placeholder, .celular input::placeholder, .contanos textarea::placeholder{
+      font-size: 1rem;
+    }
+
+    .contanos textarea::placeholder{
+      color: #000000;
+      font-size: 1rem;
+    }
+
+    .contanos{
+      font-size: 1rem;
+      padding: 0.5em 1em;
+    }
+
+    .cantidad-container{
+      gap: 4px;
+    }
+
+    .cantidad-container label img{
+      width: 100px;
+    }
+
+    .form-check{
+      padding-bottom: 0;
+    }
+
+    .btn-container{
+      display: flex;
+      flex-direction:column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+    }
+    .boton-imagen{
+      height: 100px;
+      background-size: 90px;
+    }
   }
