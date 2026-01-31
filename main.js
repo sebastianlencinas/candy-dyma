@@ -32,25 +32,28 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 // *********************************************** //
-// *********************************************** //
-var form = document.getElementById("my-form");
-
-const textarea = document.getElementById("exampleFormControlTextarea1");
+/* ============ CONTADOR DE CARACTERES ============= */
+const textarea = document.getElementById("mensajeUsuario");
 const charCount = document.getElementById("char-count");
 
-textarea.addEventListener("input", () => {
-    const currentLength = textarea.value.length;
-    charCount.innerText = `${currentLength} / 300`;
+if (textarea)
+{
+    textarea.addEventListener("input", () => {
+        const currentLength = textarea.value.length;
+        charCount.innerText = `${currentLength} / 300`;
     
-    // Un toque extra: ponerlo en rojo si llega al límite
-    if (currentLength >= 250) {
-        charCount.classList.add("text-danger");
-    } else {
-        charCount.classList.remove("text-danger");
-    }
-});
+        // Un toque extra: ponerlo en rojo si llega al límite
+        if (currentLength >= 250) {
+            charCount.classList.add("text-danger");
+        } else {
+            charCount.classList.remove("text-danger");
+        }
+    });    
+}
 
-
+/* ================================================= */
+/* ============ ENVÍO DE FORMULARIO ================ */
+var form = document.getElementById("my-form");
 //Funcion para generar HTML de alerta personalizado con Bootstrap
 function showAlert(message, type)
 {
@@ -58,11 +61,13 @@ function showAlert(message, type)
     let icon = "";
 
     //Seleccionamos el icono segun el tipo de alerta
-    if (type === "success") icon = "#check-circle-fill";
-    else if (type === "danger") icon = "#exclamation-triangle-fill";
-    else if (type === "warning") icon = "#exclamation-triangle-fill";
-    else icon = "fa-info-circle"; 
-
+    switch(type){
+        case "success": icon= "fa-check-circle"; break;
+        case "danger":  icon= "fa-exclamation-triangle"; break;
+        case "warning": icon= "fa-exclamation-circle"; break;
+        default:        icon= "fa-info-circle";
+    }
+    
     //Creamos el msj personalizado 
     status.innerHTML = `
     <div class="alert alert-${type} d-flex align-items-center alert-dismissible fade show w-100 text-start" role="alert" style="margin-top: 20px;"> 
@@ -78,12 +83,12 @@ async function handleSubmit(event)
 {
     event.preventDefault() /*previene y evita el cambio de pagina*/
     const formElement = event.target;
-    var data = new FormData(event.target)
+    var data = new FormData(formElement);
     
-    // 1. Extraemos los valores para validar
-    const nombre= data.get("nombre").trim();
-    const telefono= data.get("telefono").trim();
-    const mensaje = data.get("texto ingresado").trim();
+    // 1. Extraemos los valores 'name' del HTML para validar
+    const nombre= data.get("nombre")?.trim() || "";
+    const telefono= data.get("telefono")?.trim() || "";
+    const mensaje = data.get("mensaje")?.trim() || "";
 
     // 2. Validaciones personalizadas
     // Validacion de nombre (3-30 caracteres)
@@ -113,9 +118,9 @@ async function handleSubmit(event)
     }
   
     // 3. Si la validacion esta bien, enviamos a Formspree
-    fetch(event.target.action, 
+    fetch(formElement.action, 
     {
-        method: form.method,
+        method: formElement.method,
         body: data,
         headers: {'Accept': 'application/json'}
     }).then(response =>
@@ -124,6 +129,8 @@ async function handleSubmit(event)
         {
             showAlert("Gracias por contactarnos! en breve recibirá respuesta 🎉" , "success");
             formElement.reset();
+            charCount.innerText = "0 / 300"; // Reiniciamos el contador visual
+            charCount.classList.remove("text-danger");
         }
         else
         {
@@ -135,4 +142,4 @@ async function handleSubmit(event)
         });    
 }
 
-form.addEventListener("submit", handleSubmit);
+if (form) {form.addEventListener("submit", handleSubmit);} 
