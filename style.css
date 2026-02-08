@@ -593,8 +593,8 @@ body{
 }
   /* * * * * * * * * * * * * * * * */  /* * * * * * * * * * * * * * * * */  /* * * * * * * * * * * * * * * * */
 
-/* --- DESKTOP (min-width: 1900px) --- */
-@media (min-width: 1900px) {
+/* --- DESKTOP (min-width: 1600px) --- */
+@media (min-width: 1600px) {
   
   .on-tablet{display: inline;}
 
