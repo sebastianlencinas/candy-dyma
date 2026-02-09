@@ -466,6 +466,61 @@ body{
 }
 
 /* ================= MEDIA QUERIES (DRY) ================= */
+/* --- Celular Min (min-width: 320px) --- */
+@media (max-width: 330px) {
+  
+  .on-tablet{display: inline;}
+  /* Ajustes finos de escena */
+  .candy img { max-width: 30px; }
+  .titulo{ font-size: 2.5rem; }
+  .carrito-wrapper { width: 100%; }
+  .frasco { max-width: 50px; }
+  .slogan img { max-width: 70px; } 
+  .contenedor-suelo{ height: 80px; }
+
+  /* INFO */
+  #about h1 { font-size: 1.8rem; }
+  #about h2 { font-size:1.3rem; }
+  
+  .info, #productos p { font-size: 0.8rem; line-height: 1.1 ; }
+
+  #productos .sub h2 { font-size:1.3rem; }
+  
+  .carousel-inner img {
+    height: 50vh; /* Define la altura deseada en píxeles, vh, u otra unidad */
+    max-height: 400px;
+  }
+  
+  /* * * * * * * * * * * * * * * * *
+  /* Contacto */
+  #contactos{
+    width: 100%;
+    align-items: center;
+    margin: 0%;
+  }
+
+  /* Contacto centrado */
+  .formulario {
+    width: 70%;
+    max-width: 900px;    
+   
+  }
+
+  #contactos h2{ font-size:1.3rem; }
+
+  .nombre input, .invitados label, .celular input{ font-size: 0.8rem; }
+  
+  .nombre input::placeholder, .celular input::placeholder, .contanos textarea::placeholder{ font-size: 0.8rem; }
+
+  .contanos{ font-size: 0.8rem; }
+
+  .cantidad-container label img { width: 55px; }
+  
+  .btn-container{ padding: 0}
+
+  .boton-imagen { height: 70px; background-size: 65px; }
+
+}
 
 /* --- TABLET (min-width: 600px) --- */
 @media (min-width: 600px) 
@@ -509,7 +564,9 @@ body{
 
   .cantidad-container label img { width: 100px; }
 
-  .boton-imagen { height: 180px; background-size: 140px; }
+  .btn-container{ padding: 0}
+
+  .boton-imagen { height: 130px; background-size: 120px; }
 
 }
 
@@ -600,12 +657,12 @@ body{
   .on-tablet{display: inline;}
 
   /* Ajustes finos de escena */
-  .candy img { max-width: 60px; }
-  .titulo{ font-size: 4.6rem; }
-  .carrito-wrapper { width: 40%; }
+  .candy img { max-width: 50px; }
+  .titulo{ font-size: 4.2rem; }
+  .carrito-wrapper { width: 35%; }
   .frasco { max-width: 110px; }
-  .slogan img { max-width: 135px; } 
-  .contenedor-suelo{ height: 130px; }
+  .slogan img { max-width: 130px; } 
+  .contenedor-suelo{ height: 120px; }
 
   /* Layout: About y Productos uno al lado del otro */
   .about-productos{
@@ -676,7 +733,7 @@ body{
   .on-tablet{display: inline;}
 
   /* Ajustes finos de escena */
-  .candy img { max-width: 60px; }
+  .candy img { max-width: 65px; }
   .titulo{ font-size: 4.5rem; }
   .carrito-wrapper { width: 30%; }
   .frasco { max-width: 110px; }
