@@ -591,29 +591,30 @@ body{
   .boton-imagen { height: 130px; background-size: 120px; }
 
 }
-  /* * * * * * * * * * * * * * * * */  /* * * * * * * * * * * * * * * * */  /* * * * * * * * * * * * * * * * */
 
-/* --- DESKTOP (min-width: 1600px) --- */
-@media (min-width: 1600px) {
+/* * * * * * * * * * * * * * * * */  /* * * * * * * * * * * * * * * * */  /* * * * * * * * * * * * * * * * */
+
+/* --- DESKTOP (min-width: 1280px) --- */
+@media (min-width: 1270px) {
   
   .on-tablet{display: inline;}
 
   /* Ajustes finos de escena */
-  .candy img { max-width: 65px; }
-  .titulo{ font-size: 4.8rem; }
-  .carrito-wrapper { width: 30%; }
+  .candy img { max-width: 60px; }
+  .titulo{ font-size: 4.6rem; }
+  .carrito-wrapper { width: 40%; }
   .frasco { max-width: 110px; }
-  .slogan img { max-width: 150px; } 
-  .contenedor-suelo{ height: 140px; }
+  .slogan img { max-width: 135px; } 
+  .contenedor-suelo{ height: 130px; }
 
   /* Layout: About y Productos uno al lado del otro */
   .about-productos{
     display: flex;
     justify-content: center;
     align-items: stretch;
-    gap: 10rem;
+    gap: 0.5rem;
     width: 100%;
-    padding: 2rem;
+    padding: 0rem;
   }
 
   /* Como ahora comparten fila, ajustamos anchos */
@@ -624,16 +625,75 @@ body{
     max-height: 100vh;
   }
 
-  #about h1 { font-size: 4rem; }
-  #about h2 { font-size:2.8rem; }
+  #about h1 { font-size: 2.5rem; }
+  #about h2 { font-size:1.8rem; }
+  
+  .info, #productos p { font-size: 1.2rem; line-height: 1.1 ; }
+
+  #productos .sub h2 { font-size:2.3rem; }
+  
+  .carousel-inner img {
+    height: 70vh; /* Define la altura deseada en píxeles, vh, u otra unidad */
+    max-height: 750px;
+  }
+  
+  /* * * * * * * * * * * * * * * * *
+  /* Contacto */
+  #contactos{
+    width: 100%;
+    align-items: center;
+  }
+
+  /* Contacto centrado */
+  .formulario {
+    width: 70%;
+    max-width: 900px;    
+   
+  }
+
+  #contactos h2{ font-size:2.3rem; }
+
+  .nombre input, .invitados label, .celular input{ font-size: 1.2rem; }
+  
+  .nombre input::placeholder, .celular input::placeholder, .contanos textarea::placeholder{ font-size: 1.2rem; }
+
+  .contanos{ font-size: 1.2rem; }
+
+  .cantidad-container label img { width: 100px; }
+
+  .btn-container{ padding: 0}
+
+  .boton-imagen { height: 120px; background-size: 110px; }
+
+}
+  /* * * * * * * * * * * * * * * * */  /* * * * * * * * * * * * * * * * */  /* * * * * * * * * * * * * * * * */
+
+  /* * * * * * * * * * * * * * * * */  /* * * * * * * * * * * * * * * * */  /* * * * * * * * * * * * * * * * */
+
+/* --- DESKTOP (min-width: 1600px) --- */
+@media (min-width: 1600px) {
+  
+  .on-tablet{display: inline;}
+
+  /* Ajustes finos de escena */
+  .candy img { max-width: 60px; }
+  .titulo{ font-size: 4.5rem; }
+  .carrito-wrapper { width: 30%; }
+  .frasco { max-width: 110px; }
+  .slogan img { max-width: 130px; } 
+  .contenedor-suelo{ height: 140px; }
+
+
+  #about h1 { font-size: 3.5rem; }
+  #about h2 { font-size:2.5rem; }
   
   .info, #productos p { font-size: 1.4rem; line-height: 1.1 ; }
 
-  #productos .sub h2 { font-size:2.8rem; }
+  #productos .sub h2 { font-size:2.5rem; }
   
   .carousel-inner img {
-    height: 60vh; /* Define la altura deseada en píxeles, vh, u otra unidad */
-    max-height: 750px;
+    height: 75vh; /* Define la altura deseada en píxeles, vh, u otra unidad */
+    max-height: 650px;
   }
   
   /* * * * * * * * * * * * * * * * *
@@ -650,13 +710,13 @@ body{
     max-height: 100vh;
   }
 
-  #contactos h2{ font-size:2.8rem; }
+  #contactos h2{ font-size:2.5rem; }
 
-  .nombre input, .invitados label, .celular input{ font-size: 1.5rem; }
+  .nombre input, .invitados label, .celular input{ font-size: 1.3rem; }
   
-  .nombre input::placeholder, .celular input::placeholder, .contanos textarea::placeholder{ font-size: 1.5rem; }
+  .nombre input::placeholder, .celular input::placeholder, .contanos textarea::placeholder{ font-size: 1.3rem; }
 
-  .contanos{ font-size: 1.5rem; }
+  .contanos{ font-size: 1.3rem; }
 
   .cantidad-container label img { width: 100px; }
 
