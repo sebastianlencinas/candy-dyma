@@ -1,18 +1,4 @@
 //*************************************************//
-//*******REDIRECCION A INSTAGRAM O WHATSAPP*********//
-document.addEventListener("DOMContentLoaded", function()
-{
-    const INSTAGRAM = document.querySelector(".instagram");
-    const WHATSAPP = document.querySelector(".whatsapp");
-
-    INSTAGRAM.addEventListener("click", function()
-    {   window.open("https://www.instagram.com/candy_dyma/", "_blank");});
-
-    WHATSAPP.addEventListener("click", function()
-    {   window.open("https://api.whatsapp.com/send?phone=5401167211393&text=Hola, quisiera consultar por el servicio de Candy Dyma", "_blank");} )
-});
-
-//*************************************************//
 //*******MENSAJE EN FORMULARIOS REQUERIDOS*********//
 document.addEventListener("DOMContentLoaded", function(){
     //Seleccionamos todos los campos requeridos del formulario
