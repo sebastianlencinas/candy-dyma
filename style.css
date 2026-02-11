@@ -597,12 +597,12 @@ body{
   .on-tablet{display: inline;}
 
   /* Ajustes finos de escena */
-  .candy img { max-width: 45px; }
-  .titulo{ font-size: 3.5rem; }
-  .carrito-wrapper { width: 620%; }
-  .frasco { max-width: 110px; }
-  .slogan img { max-width: 90px; } 
-  .contenedor-suelo{ height: 120px; }
+  .candy img { max-width: 35px; }
+  .titulo{ font-size: 3rem; }
+  .carrito-wrapper { width: 300px; }
+  .frasco { max-width: 80px; }
+  .slogan img { max-width: 80px; } 
+  .contenedor-suelo{ height: 95px; }
 
   /* Layout: About y Productos uno al lado del otro */
   .about-productos{
@@ -617,21 +617,33 @@ body{
   /* Como ahora comparten fila, ajustamos anchos */
   #about, #productos {
     width: 50%;
-    max-width: 600px;
+    max-width: 500px;
     margin: 0; /* Removemos el margin global para que funcione el flex gap */
   }
 
-  #about h1 { font-size: 2.3rem; }
-  #about h2 { font-size:1.8rem; }
+  #about h1 { font-size: 2rem; }
+  #about h2 { font-size:1.5rem; }
   
-  .info, #productos p { font-size: 1rem; line-height: 1; }
+  .info, #productos p { font-size: 0.9rem; line-height: 1.1; }
 
-  #productos .sub h2 { font-size:1.8rem; }
-  
-  .carousel-inner img {
-    height: 70vh; /* Define la altura deseada en píxeles, vh, u otra unidad */
-    max-height: 600px;
+  #productos .sub h2 { font-size:1.5rem; }
+
+  .carousel {
+    max-width: 500px;
+    margin: auto;
   }
+
+  .carousel-item {
+    display: flex;
+    justify-content: center;
+  }
+
+  .carousel-inner img {
+    min-height: 400px;
+    max-height: 6000px;
+    object-fit: cover;
+  }
+  
   
   .instagram, .whatsapp{
   display: inline-flex;
@@ -653,7 +665,8 @@ body{
   /* Contacto centrado */
   .formulario {
     width: 50%;
-    max-width: 700px;    
+    max-width: 700px;
+    padding: 40px;    
   }
 
   #contactos h2{ font-size:1.8rem; }
@@ -664,9 +677,11 @@ body{
 
   .contanos{ font-size: 1rem; }
 
-  .cantidad-container label img { width: 100px; }
+  .cantidad-container label img { width: 64px; }
 
-  .boton-imagen { height: 130px; background-size: 120px; }
+  .btn-container{ padding: 0}
+
+  .boton-imagen { height: 100px; background-size: 80px;}
 
 }
 
